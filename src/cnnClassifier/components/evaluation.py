@@ -1,7 +1,8 @@
 from pathlib import Path
 
 import tensorflow as tf
-from cnnClassifier.config.configuration import EvaluationConfig
+
+from cnnClassifier.entity.config_entity import EvaluationConfig
 from cnnClassifier.utils.common import save_json
 
 

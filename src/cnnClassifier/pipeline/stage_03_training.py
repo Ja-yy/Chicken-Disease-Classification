@@ -1,8 +1,7 @@
-from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier.components.prepare_callbacks import PrepareCallback
 from cnnClassifier.components.training import Training
-from cnnClassifier import logger
-
+from cnnClassifier.entity.config_entity import PrepareCallbacksConfig, TrainingConfig
+from cnnClassifier.get_logger import logger
 
 STAGE_NAME = "Training"
 
@@ -12,12 +11,13 @@ class ModelTrainingPipeline:
         pass
 
     def main(self):
-        config = ConfigurationManager()
-        prepare_callbacks_config = config.get_prepare_callback_config()
+        prepare_callbacks_config = PrepareCallbacksConfig.get_config(
+            "prepare_callbacks"
+        )
         prepare_callbacks = PrepareCallback(config=prepare_callbacks_config)
         callback_list = prepare_callbacks.get_tb_ckpt_callbacks()
 
-        training_config = config.get_training_config()
+        training_config = TrainingConfig.get_config("training", is_parm=True)
         training = Training(config=training_config)
         training.get_base_model()
         training.train_valid_generator()

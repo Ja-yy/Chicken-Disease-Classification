@@ -1,9 +1,9 @@
 import os
-import urllib.request as request
-from zipfile import ZipFile
-import tensorflow as tf
 import time
-from cnnClassifier.config.configuration import PrepareCallbacksConfig
+
+import tensorflow as tf
+
+from cnnClassifier.entity.config_entity import PrepareCallbacksConfig
 
 
 class PrepareCallback:

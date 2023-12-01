@@ -1,0 +1,9 @@
+:root {
+    --bodyColor: #CAF0F8;
+    --borderRadius: "0.3rem",
+    --border: "1px solid #5E60CE",
+}
+
+body {
+    background-color: var(--bodyColor);
+}

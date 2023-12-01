@@ -1,7 +1,10 @@
-import tensorflow as tf
 from pathlib import Path
-from cnnClassifier.config.configuration import TrainingConfig
 
+import tensorflow as tf
+
+from cnnClassifier.entity.config_entity import TrainingConfig
+import pandas as pd
+import os
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -54,6 +57,7 @@ class Training:
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
 
+
     def train(self, callback_list: list):
         self.steps_per_epoch = (
             self.train_generator.samples // self.train_generator.batch_size
@@ -62,7 +66,7 @@ class Training:
             self.valid_generator.samples // self.valid_generator.batch_size
         )
 
-        self.model.fit(
+        self.model_history = self.model.fit(
             self.train_generator,
             epochs=self.config.params_epochs,
             steps_per_epoch=self.steps_per_epoch,

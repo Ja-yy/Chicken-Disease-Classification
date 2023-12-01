@@ -1,7 +1,6 @@
-from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier.components.evaluation import Evaluation
-from cnnClassifier import logger
-
+from cnnClassifier.entity.config_entity import EvaluationConfig
+from cnnClassifier.get_logger import logger
 
 STAGE_NAME = "Evaluation stage"
 
@@ -11,8 +10,7 @@ class EvaluationPipeline:
         pass
 
     def main(self):
-        config = ConfigurationManager()
-        val_config = config.get_validation_config()
+        val_config = EvaluationConfig.get_config("evaluation",is_parm=True)
         evaluation = Evaluation(val_config)
         evaluation.evaluation()
         evaluation.save_score()

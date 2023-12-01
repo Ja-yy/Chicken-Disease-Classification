@@ -1,7 +1,6 @@
-from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier.components.prepare_base_model import PrepareBaseModel
-from cnnClassifier import logger
-
+from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
+from cnnClassifier.get_logger import logger
 
 STAGE_NAME = "Prepare base model"
 
@@ -11,8 +10,9 @@ class PrepareBaseModelTrainingPipeline:
         pass
 
     def main(self):
-        config = ConfigurationManager()
-        prepare_base_model_config = config.get_prepare_base_model_config()
+        prepare_base_model_config = PrepareBaseModelConfig.get_config(
+            "prepare_base_model", is_parm=True
+        )
         prepare_base_model = PrepareBaseModel(config=prepare_base_model_config)
         prepare_base_model.get_base_model()
         prepare_base_model.update_base_model()

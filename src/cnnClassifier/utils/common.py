@@ -1,14 +1,16 @@
-import os
-from box.exceptions import BoxValueError
-import yaml
-from cnnClassifier import logger
+import base64
 import json
-import joblib
-from ensure import ensure_annotations
-from box import ConfigBox
+import os
 from pathlib import Path
 from typing import Any
-import base64
+
+import joblib
+import yaml
+from box import ConfigBox
+from box.exceptions import BoxValueError
+from ensure import ensure_annotations
+
+from cnnClassifier.get_logger import logger
 
 
 @ensure_annotations
@@ -61,7 +63,7 @@ def save_json(path: Path, data: dict):
     with open(path, "w") as f:
         json.dump(data, f, indent=4)
 
-    logger.info(f"json file saved at: {path}")
+        logger.info(f"json file saved at: {path}")
 
 
 @ensure_annotations
@@ -77,7 +79,7 @@ def load_json(path: Path) -> ConfigBox:
     with open(path) as f:
         content = json.load(f)
 
-    logger.info(f"json file loaded succesfully from: {path}")
+        logger.info(f"json file loaded succesfully from: {path}")
     return ConfigBox(content)
 
 

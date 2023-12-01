@@ -1,9 +1,8 @@
-import os
-import urllib.request as request
-from zipfile import ZipFile
-import tensorflow as tf
-from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
 from pathlib import Path
+
+import tensorflow as tf
+
+from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
 
 
 class PrepareBaseModel:
