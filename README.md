@@ -84,7 +84,7 @@ open up you local host and port
 
 ## Demo
 
-![demo](https://github.com/Ja-yy/Chicken-Disease-Classification/assets/114324220/284d8cae-a74e-4949-b3e0-fec0741a33cf)
+https://github.com/Ja-yy/Chicken-Disease-Classification/assets/114324220/284d8cae-a74e-4949-b3e0-fec0741a33cf
 
 ## Credits
 
